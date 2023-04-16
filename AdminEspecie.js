@@ -1,9 +1,25 @@
+const { PrismaClient}=require("@prisma/client");
 
 class AdminEspecie{
-    crearEspecie(req, res){
+
+    constructor(){
+        this.prisma = new PrismaClient()
+    }
+    async crearEspecie(req, res){
+        const datos=req.body;
+
+        const especie= await this.prisma.especie.create(
+            {
+            data:datos
+            }
+        );
+        res.json(especie);
 
     }
-    listarEspecie(req, res){
+     async listarEspecies(req, res){
+        const especies= await this.prisma.especie.findMany();
+        res.json(especies);
+
 
     }
 }
