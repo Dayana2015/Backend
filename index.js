@@ -25,7 +25,7 @@ class VeterinariaAPI{
         next();
 
     }
-
+    //Error!! to Do no estoy gestionando excepciones
     iniciarServidor(){
         this.app. listen(this.puerto, ()=>{
             console.log(`servidor ejecuntandose en el puerto ${this.puerto}`);
